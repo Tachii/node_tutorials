@@ -7,8 +7,8 @@ mymodule(dir, ext, function(err, list) {
   if (err)
     throw err;
   else {
-    list.forEach(function(something){
-      console.log(something);
+    list.forEach(function(file){
+      console.log(file);
     });
   }
 });
