@@ -8,13 +8,12 @@ function myModule(dirname, filter, callback) {
   var filelist = [];
 
   fs.readdir(dirname, function(err, list) {
-    if (err) {
+    if (err)
       return callback(err);
-    } else {
-      list.forEach(function(file){
-        if (path.extname(file) == ext) {
+    else {
+      list.forEach(function(file) {
+        if (path.extname(file) == ext)
           filelist.push(file);
-        }
       });
     }
     return callback(null, filelist);
