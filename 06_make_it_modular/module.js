@@ -11,9 +11,9 @@ function myModule(dirname, filter, callback) {
     if (err) {
       return callback(err);
     } else {
-      list.forEach(function(file){
-        if (path.extname(file) == ext) {
-          filelist.push(file);
+      list.forEach(function(something){
+        if (path.extname(something) == ext) {
+          filelist.push(something);
         }
       });
     }
