@@ -1,5 +1,5 @@
 var http = require('http');
-var dataStream = [];
+var dataSting = "";
 var dataArr = [];
 var count = 0;
 /*
@@ -22,12 +22,12 @@ function httpGet(i) {
     res.setEncoding('utf8');
 
     res.on('data', function(data) {
-      dataStream.push(data);
+      dataSting += data;
     });
 
     res.on('end', function() {
-      dataArr[i] = (dataStream.join(""));
-      dataStream = [];
+      dataArr[i] = dataSting;
+      dataSting = "";
       count++;
       if (count == process.argv.length - 2) {
         printResults(dataArr);

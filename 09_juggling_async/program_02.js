@@ -4,7 +4,7 @@ var results = [];
 var count = 0;
 
 function printResults () {
-  for (var i = 0; i < 3; i++)
+  for (var i = 0; i < process.argv.length - 2; i++)
     console.log(results[i]);
 }
 
@@ -17,11 +17,11 @@ function httpGet (index) {
       results[index] = data.toString();
       count++;
 
-      if (count == 3)
+      if (count == process.argv.length - 2)
         printResults();
     }));
   });
 }
 
-for (var i = 0; i < 3; i++)
+for (var i = 0; i < process.argv.length - 2; i++)
   httpGet(i);
