@@ -1,14 +1,15 @@
 var http = require('http');
-var dataSting = "";
 var dataArr = [];
+var dataString = "";
 var count = 0;
 /*
  Function to print results
  @dataArr - array
 */
 function printResults(dataArr) {
-  for (var i = 0; i < process.argv.length - 2; i++)
-    console.log(dataArr[i]);
+  for (var i = 0; i < process.argv.length - 2; i++) {
+    console.log(dataArr[i].replace('undefined', ''));
+  }
 }
 
 /*
@@ -22,12 +23,12 @@ function httpGet(i) {
     res.setEncoding('utf8');
 
     res.on('data', function(data) {
-      dataSting += data;
+      if (typeof data !== 'undefined') {
+        dataArr[i] += data;
+      }
     });
 
     res.on('end', function() {
-      dataArr[i] = dataSting;
-      dataSting = "";
       count++;
       if (count == process.argv.length - 2) {
         printResults(dataArr);
