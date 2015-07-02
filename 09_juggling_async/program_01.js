@@ -22,9 +22,7 @@ function httpGet(i) {
     res.setEncoding('utf8');
 
     res.on('data', function(data) {
-      if (typeof data !== 'undefined') {
         dataArr[i] += data;
-      }
     });
 
     res.on('end', function() {
