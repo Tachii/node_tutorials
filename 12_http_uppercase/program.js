@@ -1,11 +1,11 @@
 var http = require('http');
 var fs = require('fs');
-var body = "";
+var output = "";
 
 var server = http.createServer(function(req, res) {
   req.on('data', function(chunk) {
     if (req.method == 'POST'){
-      body += chunk;
+      output += chunk;
       console.log(body);
     }
     else
@@ -13,7 +13,7 @@ var server = http.createServer(function(req, res) {
   });
 
   req.on('end', function() {
-    res.end(body.toUpperCase());
+    res.end(output.toUpperCase());
   });
 
 });
