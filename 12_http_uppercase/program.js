@@ -1,0 +1,21 @@
+var http = require('http');
+var fs = require('fs');
+var body = "";
+
+var server = http.createServer(function(req, res) {
+  req.on('data', function(chunk) {
+    if (req.method == 'POST'){
+      body += chunk;
+      console.log(body);
+    }
+    else
+      console.log('POST Request expected, recieved:' + req.method);
+  });
+
+  req.on('end', function() {
+    res.end(body.toUpperCase());
+  });
+
+});
+
+server.listen(Number(process.argv[2]));
