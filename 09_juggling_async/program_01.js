@@ -1,6 +1,5 @@
 var http = require('http');
 var dataArr = [];
-var dataString = "";
 var count = 0;
 /*
  Function to print results
